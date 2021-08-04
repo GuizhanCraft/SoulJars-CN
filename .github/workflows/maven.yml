@@ -1,4 +1,4 @@
-name: 自动构建
+name: Auto Build
 
 on:
   push:
