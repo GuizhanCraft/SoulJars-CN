@@ -9,7 +9,7 @@ SoulJars 的灵感来源于著名模组 [SoulShards](https://www.curseforge.com/
 
 在本插件的配置文件`config.yml`中，你可以启用/禁用某一生物的灵魂罐。
 
-[了解更多...](https://github.com/TheBusyBiscuit/Slimefun4/wiki/SoulJars)
+[了解更多...](https://github.com/TheBusyBiscuit/Slimefun4/wiki/Addons)
 
 ## 下载 SoulJars
 
