@@ -4,6 +4,7 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.logging.Level;
 
+import net.guizhanss.minecraft.chineselib.minecraft.entity.EntityTypes;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -66,7 +67,7 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
     }
 
     private void registerSoul(EntityType type) {
-        String name = ChatUtils.humanize(type.name());
+        String name = EntityTypes.fromEntityType(type).toString();
 
         int souls = cfg.getOrSetDefault("souls-required." + type.toString(), 128);
         mobs.put(type, souls);
@@ -80,12 +81,12 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
         // @formatter:off
         SlimefunItemStack jarItem = new SlimefunItemStack(type.name() + "_SOUL_JAR", JAR_TEXTURE, "&c灵魂罐 &7(" + name + ")", "", "&7已封印灵魂: &e1");
         SlimefunItem jar = new UnplaceableBlock(itemGroup, jarItem, recipeType,
-        new ItemStack[] { null, null, null, emptyJar, null, new CustomItemStack(mobEgg, "&r击杀 " + souls + " 个 " + name), null, null, null });
+        new ItemStack[] { null, null, null, emptyJar, null, new CustomItemStack(mobEgg, "&r击杀" + souls + "个" + name), null, null, null });
         jar.register(this);
 
         SlimefunItemStack filledJarItem = new SlimefunItemStack("FILLED_" + type.name() + "_SOUL_JAR", JAR_TEXTURE, "&c装满的灵魂罐 &7(" + name + ")", "", "&7已封印灵魂: &e" + souls);
         SlimefunItem filledJar = new FilledJar(itemGroup, filledJarItem, recipeType,
-        new ItemStack[] { null, null, null, emptyJar, null, new CustomItemStack(mobEgg, "&r击杀 " + souls + "x " + name), null, null, null });
+        new ItemStack[] { null, null, null, emptyJar, null, new CustomItemStack(mobEgg, "&r击杀" + souls + "个" + name), null, null, null });
         filledJar.register(this);
 
         BrokenSpawner brokenSpawner = SlimefunItems.BROKEN_SPAWNER.getItem(BrokenSpawner.class);

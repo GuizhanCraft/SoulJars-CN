@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.thebusybiscuit</groupId>
     <artifactId>SoulJars</artifactId>
-    <version>DEV-23-zh_CN</version>
+    <version>UNOFFICIAL</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -68,6 +68,10 @@
                             <pattern>org.bstats</pattern>
                             <shadedPattern>io.github.thebusybiscuit.souljars.bstats</shadedPattern>
                         </relocation>
+                        <relocation>
+                            <pattern>net.guizhanss.minecraft.chineselib</pattern>
+                            <shadedPattern>io.github.thebusybiscuit.souljars.chineselib</shadedPattern>
+                        </relocation>
                     </relocations>
 
                     <!-- Exclude unneeded metadata files from shaded dependencies -->
@@ -118,6 +122,13 @@
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>2.2.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ybw0014</groupId>
+            <artifactId>ChineseLib</artifactId>
+            <version>0.2.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
