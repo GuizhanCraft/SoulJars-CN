@@ -81,7 +81,7 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
         // @formatter:off
         SlimefunItemStack jarItem = new SlimefunItemStack(type.name() + "_SOUL_JAR", JAR_TEXTURE, "&c灵魂罐 &7(" + name + ")", "", "&7已封印灵魂: &e1");
         SlimefunItem jar = new UnplaceableBlock(itemGroup, jarItem, recipeType,
-        new ItemStack[] { null, null, null, emptyJar, null, new CustomItemStack(mobEgg, "&r击杀" + souls + "个" + name), null, null, null });
+        new ItemStack[] { null, null, null, emptyJar, null, new CustomItemStack(mobEgg, "&r击杀" + souls + "个" + name + "以装满"), null, null, null });
         jar.register(this);
 
         SlimefunItemStack filledJarItem = new SlimefunItemStack("FILLED_" + type.name() + "_SOUL_JAR", JAR_TEXTURE, "&c装满的灵魂罐 &7(" + name + ")", "", "&7已封印灵魂: &e" + souls);
