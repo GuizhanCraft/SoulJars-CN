@@ -47,9 +47,9 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
             new GitHubBuildsUpdater(this, getFile(), "ybw0014/SoulJars-CN/master").start();
         }
 
-        emptyJar = new SlimefunItemStack("SOUL_JAR", JAR_TEXTURE, "&b灵魂罐 &7(空)", "", "&r当此物品在你的物品栏时", "&r击杀怪物将怪物的灵魂封印到灵魂罐中");
+        emptyJar = new SlimefunItemStack("SOUL_JAR", JAR_TEXTURE, "&b灵魂罐 &7(空)", "", "&r当此物品在你的物品栏时", "&r击杀生物可封印其灵魂于灵魂罐中");
         itemGroup = new ItemGroup(new NamespacedKey(this, "soul_jars"), new CustomItemStack(emptyJar, "&b灵魂罐", "", "&a> 点击打开"));
-        recipeType = new RecipeType(new NamespacedKey(this, "mob_killing"), new CustomItemStack(Material.DIAMOND_SWORD, "&c当物品栏中有空的灵魂罐时", "&c击杀特定的怪物"));
+        recipeType = new RecipeType(new NamespacedKey(this, "mob_killing"), new CustomItemStack(Material.DIAMOND_SWORD, "&c当物品栏中有空的灵魂罐时", "&c击杀特定的生物"));
 
         new SlimefunItem(itemGroup, emptyJar, RecipeType.ANCIENT_ALTAR, new ItemStack[] { SlimefunItems.EARTH_RUNE, new ItemStack(Material.SOUL_SAND), SlimefunItems.WATER_RUNE, new ItemStack(Material.SOUL_SAND), SlimefunItems.NECROTIC_SKULL, new ItemStack(Material.SOUL_SAND), SlimefunItems.AIR_RUNE, new ItemStack(Material.SOUL_SAND), SlimefunItems.FIRE_RUNE }, new CustomItemStack(emptyJar, 3)).register(this);
         new JarsListener(this);
