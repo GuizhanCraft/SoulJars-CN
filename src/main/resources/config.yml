@@ -1,7 +1,13 @@
 options:
-  auto-update: true
+  auto-update: false
+# 在此处找到所有生物类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+# PIG_ZOMBIE为1.15及以下的僵尸猪人,在1.16中已被僵尸猪灵(ZOMBIFIED_PIGLIN)代替
 mobs:
+- AXOLOTL
+- BAT
+- BEE
 - BLAZE
+- CAT
 - CAVE_SPIDER
 - CHICKEN
 - COW
@@ -12,7 +18,10 @@ mobs:
 - ENDERMITE
 - FOX
 - GHAST
+- GLOW_SQUID
+- GOAT
 - GUARDIAN
+- HOGLIN
 - HORSE
 - HUSK
 - ILLUSIONER
@@ -26,6 +35,8 @@ mobs:
 - PHANTOM
 - PIG
 - PIG_ZOMBIE
+- PIGLIN
+- PIGLIN_BRUTE
 - PILLAGER
 - POLAR_BEAR
 - RABBIT
@@ -42,5 +53,7 @@ mobs:
 - WITCH
 - WITHER_SKELETON
 - WOLF
+- ZOGLIN
 - ZOMBIE
 - ZOMBIE_VILLAGER
+- ZOMBIFIED_PIGLIN

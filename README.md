@@ -1,5 +1,7 @@
 # SoulJars 灵魂罐
 
+**警告: Slimefun近期更新导致损坏的刷怪笼无法被用于合成修复的刷怪笼，请等待后续修复!**
+
 SoulJars 是一个 Slimefun4 附属插件。
 你需要安装 Slimefun4 才能让此插件运行。
 
