@@ -4,7 +4,6 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.logging.Level;
 
-import net.guizhanss.minecraft.chineselib.minecraft.entity.EntityTypes;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -24,7 +23,8 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+
+import net.guizhanss.minecraft.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
 
 public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
 
@@ -67,12 +67,12 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
     }
 
     private void registerSoul(EntityType type) {
-        String name = EntityTypes.fromEntityType(type).toString();
+        String name = EntityTypeHelper.getName(type);
 
-        int souls = cfg.getOrSetDefault("souls-required." + type.toString(), 128);
+        int souls = cfg.getOrSetDefault("souls-required." + type, 128);
         mobs.put(type, souls);
 
-        Material mobEgg = Material.getMaterial(type.toString() + "_SPAWN_EGG");
+        Material mobEgg = Material.getMaterial(type.name() + "_SPAWN_EGG");
 
         if (mobEgg == null) {
             mobEgg = Material.ZOMBIE_SPAWN_EGG;
@@ -91,9 +91,9 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
 
         BrokenSpawner brokenSpawner = SlimefunItems.BROKEN_SPAWNER.getItem(BrokenSpawner.class);
 
-        SlimefunItemStack spawnerItem = new SlimefunItemStack(type.toString() + "_BROKEN_SPAWNER", Material.SPAWNER, "&c已损坏的刷怪笼 &7(" + name + ")");
+        SlimefunItemStack spawnerItem = new SlimefunItemStack(type.name() + "_BROKEN_SPAWNER", brokenSpawner.getItemForEntityType(type));
         new SlimefunItem(itemGroup, spawnerItem, RecipeType.ANCIENT_ALTAR,
-        new ItemStack[] { new ItemStack(Material.IRON_BARS), SlimefunItems.EARTH_RUNE, new ItemStack(Material.IRON_BARS), SlimefunItems.EARTH_RUNE, filledJarItem, SlimefunItems.EARTH_RUNE, new ItemStack(Material.IRON_BARS), SlimefunItems.EARTH_RUNE, new ItemStack(Material.IRON_BARS) }, 
+        new ItemStack[] { new ItemStack(Material.IRON_BARS), SlimefunItems.EARTH_RUNE, new ItemStack(Material.IRON_BARS), SlimefunItems.EARTH_RUNE, filledJarItem, SlimefunItems.EARTH_RUNE, new ItemStack(Material.IRON_BARS), SlimefunItems.EARTH_RUNE, new ItemStack(Material.IRON_BARS) },
         brokenSpawner.getItemForEntityType(type)).register(this);
         // @formatter:on
     }

@@ -1,7 +1,5 @@
 # SoulJars 灵魂罐
 
-**警告: Slimefun近期更新导致损坏的刷怪笼无法被用于合成修复的刷怪笼，请等待后续修复!**
-
 SoulJars 是一个 Slimefun4 附属插件。
 你需要安装 Slimefun4 才能让此插件运行。
 
@@ -10,6 +8,8 @@ SoulJars 的灵感来源于著名模组 [SoulShards](https://www.curseforge.com/
 然后，你可以合成破损的刷怪笼，并将它修复。因此，你可以获得几乎任何生物刷怪笼。
 
 在本插件的配置文件`config.yml`中，你可以启用/禁用某一生物的灵魂罐。
+
+注意: 通过`/sf give`指令获得的已损坏的刷怪笼无法用于合成修复的刷怪笼。
 
 [了解更多...](https://github.com/TheBusyBiscuit/Slimefun4/wiki/Addons)
 
