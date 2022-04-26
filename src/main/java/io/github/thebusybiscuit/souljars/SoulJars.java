@@ -4,6 +4,7 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.logging.Level;
 
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -24,7 +25,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 
-import net.guizhanss.minecraft.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
 
 public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
 
@@ -43,8 +44,8 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
         // Setting up bStats
         new Metrics(this, 5581);
 
-        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
-            new GitHubBuildsUpdater(this, getFile(), "ybw0014/SoulJars-CN/master").start();
+        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build ")) {
+            new GuizhanBuildsUpdater(this, getFile(), "ybw0014", "SoulJars-CN", "master", false).start();
         }
 
         emptyJar = new SlimefunItemStack("SOUL_JAR", JAR_TEXTURE, "&b灵魂罐 &7(空)", "", "&r当此物品在你的物品栏时", "&r击杀生物可封印其灵魂于灵魂罐中");
