@@ -4,7 +4,6 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.logging.Level;
 
-import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Material;
@@ -68,7 +67,7 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
                 EntityType type = EntityType.valueOf(mob);
                 registerSoul(type);
             } catch (Exception x) {
-                getLogger().log(Level.SEVERE, "{0}: 无效的生物类型: {1}", new Object[] { x.getClass().getSimpleName(), mob });
+                getLogger().log(Level.WARNING, "{0}: 无效的生物类型: {1}", new Object[] { x.getClass().getSimpleName(), mob });
             }
         }
 
@@ -118,7 +117,7 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
 
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/ybw0014/SoulJars-CN/issues";
+        return "https://github.com/SlimefunGuguProject/SoulJars/issues";
     }
 
 }
