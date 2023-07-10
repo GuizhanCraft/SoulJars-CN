@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.logging.Level;
 
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
+import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -41,11 +42,18 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
     public void onEnable() {
         cfg = new Config(this);
 
+        if (!getServer().getPluginManager().isPluginEnabled("GuizhanLibPlugin")) {
+            getLogger().log(Level.SEVERE, "本插件需要 鬼斩前置库插件(GuizhanLibPlugin) 才能运行!");
+            getLogger().log(Level.SEVERE, "从此处下载: https://50l.cc/gzlib");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
         // Setting up bStats
         new Metrics(this, 5581);
 
-        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build ")) {
-            new GuizhanBuildsUpdater(this, getFile(), "ybw0014", "SoulJars-CN", "master", false).start();
+        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build")) {
+            GuizhanUpdater.start(this, getFile(), "ybw0014", "SoulJars-CN", "master");
         }
 
         emptyJar = new SlimefunItemStack("SOUL_JAR", JAR_TEXTURE, "&b灵魂罐 &7(空)", "", "&r当此物品在你的物品栏时", "&r击杀生物可封印其灵魂于灵魂罐中");

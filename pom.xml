@@ -58,7 +58,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.5.0</version>
 
                 <configuration>
 
@@ -67,10 +67,6 @@
                         <relocation>
                             <pattern>org.bstats</pattern>
                             <shadedPattern>io.github.thebusybiscuit.souljars.bstats</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>net.guizhanss.guizhanlib</pattern>
-                            <shadedPattern>io.github.thebusybiscuit.souljars.guizhanlib</shadedPattern>
                         </relocation>
                     </relocations>
 
@@ -127,9 +123,9 @@
 
         <dependency>
             <groupId>net.guizhanss</groupId>
-            <artifactId>GuizhanLib</artifactId>
-            <version>0.8.5</version>
-            <scope>compile</scope>
+            <artifactId>GuizhanLibPlugin</artifactId>
+            <version>1.2.2</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
