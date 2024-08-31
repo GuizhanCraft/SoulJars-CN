@@ -52,7 +52,7 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
         new Metrics(this, 5581);
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build")) {
-            GuizhanUpdater.start(this, getFile(), "ybw0014", "SoulJars-CN", "master");
+            GuizhanUpdater.start(this, getFile(), "SlimefunGuguProject", "SoulJars", "master");
         }
 
         emptyJar = new SlimefunItemStack("SOUL_JAR", JAR_TEXTURE, "&b灵魂罐 &7(空)", "", "&r当此物品在你的物品栏时", "&r击杀生物可封印其灵魂于灵魂罐中");
